@@ -32,7 +32,7 @@ io.on('connection', function(socket){
 
   // catch the move event and send it to all sockets in the room
   socket.on('move', function(number){
-    io.sockets.emit('move', number);
+    io.sockets.in(room).emit('move', number);
   });
 
   // leave the room upon disconnect
